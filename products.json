@@ -1,0 +1,30 @@
+[
+    {
+        "id": "price_1IsxX2A55DAw1e5nztk4ebrG",
+        "title": "Same or Next Day Services",
+        "description": "We provide these services for those unexpected times, Monday through Friday.",
+        "image": "/images/Same+Day+Service.png",
+        "price": "15.00"
+    },
+    {
+        "id": "price_1Isy4XA55DAw1e5nA42ltQ16",
+        "title": "Alterations and repairs",
+        "description": "Stiching, buttons, and other customizations. Let us find a solution for you!",
+        "image": "/images/Alterations+Repairs.png",
+        "price": "12.00"
+    },
+    {
+        "id": "price_1IsyEVA55DAw1e5nn53sBfUO",
+        "title": "General Laundry Services",
+        "description": "We  clean all types of soil, city dust, stains from clothing (except underwear)",
+        "image": "/images/General+Laundry.png",
+        "price": "10.00"
+    },
+    {
+        "id": "price_1IsyLEA55DAw1e5n0YdjZK3J",
+        "title": "Commercial and Retail",
+        "description": "Small to medium sized business accounts for uniforms, micro-fiber towels, & more",
+        "image": "/images/Commercial+Retail+Services+2.png",
+        "price": "550.00"
+    }
+]

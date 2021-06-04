@@ -1,8 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-
 import products from '../products.json';
-
 
 
 export default function Home() {
@@ -10,7 +8,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Harvard Cleaners</title>
-        <link rel="icon" href="/public/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
@@ -49,7 +47,7 @@ export default function Home() {
         >
           Powered by {' '}
           <span className={styles.logo}>
-            <img src="/public/ScoopLogo.svg" alt="The Scoop LLC" width={72} height={35} />
+            <img src="/ScoopLogo.svg" alt="The Scoop LLC" width={72} height={35} />
           </span>
         </a>
       </footer>

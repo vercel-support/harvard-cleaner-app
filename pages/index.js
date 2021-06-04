@@ -1,9 +1,12 @@
 import Head from 'next/head'
+import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import products from '../products.json';
 
+import { initiateCheckout } from '../lib/payments.js';
 
 export default function Home() {
+  console.log('NEXT_PUBLIC_STRIPE_API_KEY', process.env.NEXT_PUBLIC_STRIPE_API_KEY)
   return (
     <div className={styles.container}>
       <Head>
@@ -28,9 +31,21 @@ export default function Home() {
                 <a href="#" >
                   <img src={image} alt="{title}"></img>
                   <h3> {title} </h3>
-                  <p>Starts at $ {price}</p>
+                  <p>Starts at ${price}</p>
                   <p> {description}</p>
                 </a>
+                <p>
+                  <button className={styles.button} onClick={() => {
+                    initiateCheckout({
+                      lineItems: [
+                        {
+                          price: id,
+                          quantity: 1
+                        }
+                      ]
+                    });
+                  }}>Buy This!</button>
+                </p>
               </li>
             )
           }
@@ -47,7 +62,7 @@ export default function Home() {
         >
           Powered by {' '}
           <span className={styles.logo}>
-            <img src="/ScoopLogo.svg" alt="The Scoop LLC" width={72} height={35} />
+            <Image src="/ScoopLogo.svg" alt="The Scoop LLC" width={54} height={35} />
           </span>
         </a>
       </footer>

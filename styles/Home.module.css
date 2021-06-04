@@ -29,7 +29,7 @@
 .footer a {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   flex-grow: 1;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .title {
-  margin-top: 3em;
+  margin-top: 10em;
   line-height: 1.15;
   font-size: 3.5em;
 }
@@ -56,19 +56,19 @@
 }
 
 .description {
-  margin-top: 5em;
+  margin-top: 0.25em;
   line-height: 1.5;
   font-size: 1.5em;
 }
 
-.code {
+/* .code {
   background: #fafafa;
   border-radius: 5px;
   padding: 0.75rem;
   font-size: 1.1rem;
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
     Bitstream Vera Sans Mono, Courier New, monospace;
-}
+} */
 
 .grid {
   display: flex;
@@ -93,7 +93,7 @@
   width: 45%;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 480px) {
   .card {
     flex-basis: calc(50%-2rem);
   }
@@ -118,8 +118,8 @@
 }
 
 .logo {
-  height: 1em;
-  margin-left: 0.5rem;
+  align-items: stretch;
+  margin-left: 0.5em;
 }
 
 @media (max-width: 960px) {

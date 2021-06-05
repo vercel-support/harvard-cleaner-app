@@ -1,67 +1,15 @@
-import { useState } from 'react';
+// Package Imports 
 import Head from 'next/head'
-import Image from 'next/image'
+import Link from 'next/link'
+/*import Image from 'next/image'*/
 import styles from '../styles/Home.module.css'
-
-import { initiateCheckout } from '../lib/payments.js';
-
+import { useCart } from '../hooks/use-cart.js';
 import products from '../products.json';
+import { Navbar } from '../components/Nav/Navbar'
 
-const defaultCart = {
-  products: {}
-}
 
 export default function Home() {
-
-  const [cart, updateCart] = useState(defaultCart);
-
-  const cartItems = Object.keys(cart.products).map(key => {
-    const product = products.find(({ id }) => `${id}` === `${key}`);
-    return {
-      ...cart.products[key],
-      pricePerItem: product.price
-
-    }
-  });
-
-  const subtotal = cartItems.reduce((accumulator, { pricePerItem, quantity }) => {
-    return accumulator + (pricePerItem * quantity)
-  }, 0)
-
-  const totalItems = cartItems.reduce((accumulator, { quantity }) => {
-    return accumulator + quantity
-  }, 0)
-
-
-  function addToCart({ id } = {}) {
-    updateCart(prev => {
-      let cartState = { ...prev };
-
-      if (cartState.products[id]) {
-        cartState.products[id].quantity = cartState.products[id].quantity + 1;
-      } else {
-        cartState.products[id] = {
-          id,
-          quantity: 1
-        }
-      }
-
-      return cartState;
-    })
-  }
-
-
-  function checkout() {
-    initiateCheckout({
-      lineItems: cartItems.map(item => {
-        return {
-          price: item.id,
-          quantity: item.quantity
-        }
-      })
-    });
-  }
-
+  const { addToCart } = useCart();
 
   return (
     <div className={styles.container}>
@@ -69,6 +17,8 @@ export default function Home() {
         <title>Harvard Cleaners</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Navbar />
+
 
       <main className={styles.main}>
         <h1 className={styles.title}>
@@ -79,26 +29,19 @@ export default function Home() {
           Let's get you all cleaned up with environmentally-friendly cleaning services
         </p>
 
-        <p className={styles.description}>
-          <strong>Items:</strong> {totalItems}
-          <br />
-          <strong>Total Cost:</strong> ${subtotal}
-          <br />
-          <button className={styles.button} onClick={checkout}>Check Out</button>
-        </p>
-
-
         <ul className={styles.grid} >
           {products.map(product => {
-            const { id, title, price, description, image } = product;
+            const { id, title, image, description, price } = product;
             return (
               <li key={id} className={styles.card}>
-                <a href="#" >
-                  <img src={image} alt="{title}"></img>
-                  <h3> {title} </h3>
-                  <p>Starts at ${price}</p>
-                  <p> {description}</p>
-                </a>
+                <Link href={`/products/${id}`}>
+                  <a>
+                    <img src={image} alt="{title}"></img>
+                    <h3> {title} </h3>
+                    <p>Starts at ${price}</p>
+                    <p> {description}</p>
+                  </a>
+                </Link>
                 <p>
                   <button className={styles.button} onClick={() => {
                     addToCart({
@@ -109,21 +52,20 @@ export default function Home() {
                 </p>
               </li>
             )
-          }
-          )
-          }
+          })}
         </ul>
       </main>
 
+
       <footer className={styles.footer}>
         <a
-          href="#"
+          href="https://thescoopllc.co"
           target="_blank"
           rel="noopener noreferrer"
         >
           Powered by {' '}
           <span className={styles.logo}>
-            <Image src="/ScoopLogo.svg" alt="The Scoop LLC" width={54} height={35} />
+            <img src="/ScoopLogo.svg" alt="The Scoop LLC" /*width={54} height={35}*/ />
           </span>
         </a>
       </footer>

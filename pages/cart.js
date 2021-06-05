@@ -57,8 +57,8 @@ export default function Home() {
             id,
             title,
             quantity: <Quantity />,
-            pricePerUnit: pricePerUnit.toFixed(2),
-            total: (quantity * pricePerUnit).toFixed(2)
+            pricePerUnit: parseFloat(pricePerUnit).toFixed(2),
+            total: parseFloat(quantity * pricePerUnit).toFixed(2)
         }
     });
 

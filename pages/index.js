@@ -1,11 +1,10 @@
 // Package Imports 
 import Head from 'next/head'
 import Link from 'next/link'
-/*import Image from 'next/image'*/
 import styles from '../styles/Home.module.css'
 import { useCart } from '../hooks/use-cart.js';
 import products from '../products.json';
-import { Navbar } from '../components/Nav/Navbar'
+
 
 
 export default function Home() {
@@ -17,7 +16,6 @@ export default function Home() {
         <title>Harvard Cleaners</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar />
 
 
       <main className={styles.main}>
@@ -65,7 +63,7 @@ export default function Home() {
         >
           Powered by {' '}
           <span className={styles.logo}>
-            <img src="/ScoopLogo.svg" alt="The Scoop LLC" /*width={54} height={35}*/ />
+            <img src="/ScoopLogo.svg" alt="The Scoop LLC" width={54} height={35} />
           </span>
         </a>
       </footer>

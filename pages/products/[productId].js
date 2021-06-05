@@ -30,7 +30,7 @@ export default function Product({ product }) {
                     </p>
 
                     <p className={styles.description}>
-                        ${price.toFixed(2)}
+                        ${parseFloat(price).toFixed(2)}
                     </p>
 
                     <p>

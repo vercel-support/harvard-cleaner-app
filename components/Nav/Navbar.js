@@ -1,5 +1,7 @@
-import styles from '../styles/Navbar.module.css';
-import { useCart } from '../hooks/use-cart.js';
+import styles from '../../styles/Navbar.module.css';
+import { useCart } from '../../hooks/use-cart';
+import Link from 'next/link';
+/*import Navbar from '../components/Nav/Navbar'*/
 
 const Navbar = () => {
     const { subtotal, checkout } = useCart();
@@ -11,8 +13,8 @@ const Navbar = () => {
                 </Link>
             </p>
             <p className={styles.navCart}>
-                <Link onClick={checkout}>
-                    <a>🛒 ${subtotal.toFixed(2)} </a>
+                <Link href="onClick={checkout}">
+                    <a>🛒 ${parseFloat(subtotal).toFixed(2)} </a>
                 </Link>
             </p>
         </nav>

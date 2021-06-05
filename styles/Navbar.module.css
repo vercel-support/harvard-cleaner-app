@@ -4,6 +4,8 @@
   justify-content: space-between;
   padding: 1em 1.5em;
   background-color: #e2311d;
+  color: beige;
+  border-bottom: 2px solid #eaeaea;
 }
 
 .navTitle {
@@ -14,6 +16,9 @@
 
 .navCart {
   margin: 0;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: black;
 }
 
 .navCart svg {

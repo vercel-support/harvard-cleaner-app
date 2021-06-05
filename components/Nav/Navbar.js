@@ -1,7 +1,7 @@
 import styles from '../../styles/Navbar.module.css';
 import { useCart } from '../../hooks/use-cart';
 import Link from 'next/link';
-/*import Navbar from '../components/Nav/Navbar'*/
+
 
 const Navbar = () => {
     const { subtotal, checkout } = useCart();
@@ -9,7 +9,7 @@ const Navbar = () => {
         <nav className={styles.Navbar}>
             <p className={styles.navTitle}>
                 <Link href="/">
-                    <a>Harvard Cleaners 🧼</a>
+                    <a> Harvard Cleaners </a>
                 </Link>
             </p>
             <p className={styles.navCart}>
